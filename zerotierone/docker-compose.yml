@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+   zerotier:
+      image: croc/zerotier
+      environment:
+        # - NETWORK_ID=*your_network_id*
+      volumes:
+         - './config/route.list:/config/route.list:ro'
+      network_mode: host
+      privileged: true
+      restart: always

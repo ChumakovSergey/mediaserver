@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  gerbera:
+    image: gerbera/gerbera:latest
+    container_name: gerbera
+    volumes:
+      - /data/downloads:/data
+      - root:/root
+      - ./config.xml:/root/.config/gerbera/config.xml
+    network_mode: host
+    # ports:
+      # - 49152:49152
+      # - 1900:1900/udp
+    restart: always
+
+volumes:
+  root:
+  
