@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  samba:
+    image: dperson/samba:latest
+    container_name: samba
+    volumes:
+      - /data:/mount
+      - ./smb.conf:/etc/samba/smb.conf
+      - ./log:/etc/samba/log
+    environment:
+      NMBD: 1
+      TZ: Asia/Yekaterinburg
+    network_mode: host
+    # ports:
+      # - 139:139
+      # - 445:445
+    restart: always

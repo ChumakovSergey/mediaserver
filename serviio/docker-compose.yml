@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  serviio:
+    image: riftbit/serviio:latest
+    container_name: serviio
+    environment:
+      TZ: Asia/Yekaterinburg
+    network_mode: host
+    volumes:
+      - /data/downloads:/data
+      - ./library:/opt/serviio/library
+      - ./plugins:/opt/serviio/plugins
+      - ./log:/opt/serviio/log
+    restart: always

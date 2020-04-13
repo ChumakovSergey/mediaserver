@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  utorrent:
+    image: ekho/utorrent:latest
+    container_name: utorrent
+    volumes:
+      - /data/downloads:/utorrent/data
+      - utorrent-settings:/utorrent/settings
+    environment:
+      HOST_UID: 1002
+      HOST_GID: 1002
+      TZ: Asia/Yekaterinburg
+    ports:
+      - 8000:8080
+      - 6881:6881
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        
+volumes:
+  utorrent-settings:
